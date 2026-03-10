@@ -43,4 +43,121 @@ body {
 .btn-auth-gradient:hover {
   color: white;
   opacity: 0.96;
+/*=====================================================================
+    Archivo: styles.css
+    autor: NodeNinjas
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+/*=====================================================================
+
+    GLOBAL STYLES
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f9;
+        margin:0;
+        padding:40px;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    input{
+        padding:10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    button{
+        padding: 10px;
+        background: #007bff ;
+        color: white;
+        border:none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover{
+        background: #0056b3;
+    }
+
+/*=====================================================================
+    USER PAGE STYLES
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+.main-container{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.user-list-container{
+    flex:1;
+    position: sticky;
+    top: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+#formUsuario{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.form-container{
+    flex:1;
+}
+#listaUsuarios{
+    margin-top: 20px;
+}
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#tablaUser{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#tablaUser th:nth-child(1),
+#tablaUser td:nth-child(1) {
+    width: 25%;
+}
+
+#tablaUser th:nth-child(2),
+#tablaUser td:nth-child(2) {
+    width: 35%;
+}
+
+#tablaUser th:nth-child(3),
+#tablaUser td:nth-child(3) {
+    width: 20%;
+}
+
+#tablaUser th:nth-child(4),
+#tablaUser td:nth-child(4) {
+    width: 20%;
+}
+
+#tablaUser th,
+#tablaUser td {
+    padding: 10px;
+    text-align: left;
 }
