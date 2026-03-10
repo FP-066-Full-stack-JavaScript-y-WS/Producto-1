@@ -1,3 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.bg-auth {
+  background-color: #f5f6f8;
+}
+
+.auth-register-card {
+  max-width: 920px;
+  border-radius: 18px;
+}
+
+.auth-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2f80ed, #a100ff);
+}
+
+.auth-input {
+  background-color: #f8f9fb;
+  border: 1px solid #dde2e7;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.auth-input:focus {
+  border-color: #7b61ff;
+  box-shadow: 0 0 0 0.2rem rgba(123, 97, 255, 0.15);
+}
+
+.btn-auth-gradient {
+  background: linear-gradient(90deg, #2f80ed, #a100ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(123, 97, 255, 0.25);
+}
+
+.btn-auth-gradient:hover {
+  color: white;
+  opacity: 0.96;
 /*=====================================================================
     Archivo: styles.css
     autor: NodeNinjas
