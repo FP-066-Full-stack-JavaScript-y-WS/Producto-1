@@ -5,7 +5,6 @@
     Este archivo almacena los datos de prueba de la aplicación.
     En el Producto 1 no existe base de datos ni persistencia real,
     por lo que toda la información se guarda en arrays en memoria.
-=====================================================================*/
 
 /**
  * Usuario que aparece como logueado en la interfaz.
@@ -79,3 +78,6 @@ export const demandas = [
         fecha: "Actualizado hace 2 días"
     }
 ];
+
+//creo un array vacío para guardar cada usuario que se cree
+export const usuarios = []

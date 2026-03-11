@@ -9,11 +9,9 @@
     - azul principal similar al del compañero
     Además, se añade un color morado para distinguir
     visualmente las demandas de empleo.
-=====================================================================*/
 
 /*=====================================================================
     1. ESTILOS GLOBALES
-=====================================================================*/
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +41,6 @@ button:hover{
 
 /*=====================================================================
     2. NAVBAR
-=====================================================================*/
 
 .navbar-brand-custom{
     display: flex;
@@ -89,7 +86,6 @@ button:hover{
 
 /*=====================================================================
     3. CONTENIDO GENERAL DEL DASHBOARD
-=====================================================================*/
 
 .dashboard-container{
     max-width: 1400px;
@@ -154,7 +150,6 @@ button:hover{
 
 /*=====================================================================
     4. TARJETAS DEL DASHBOARD
-=====================================================================*/
 
 .dashboard-card{
     background: white;
@@ -234,7 +229,6 @@ button:hover{
 /*=====================================================================
     5. RESPONSIVE
     Ajustes para tablets y móviles
-=====================================================================*/
 
 @media (max-width: 768px){
     .dashboard-hero h1{
@@ -248,4 +242,166 @@ button:hover{
     .dashboard-card h3{
         font-size: 1.3rem;
     }
+body {
+  font-family: Arial, sans-serif;
+}
+
+.bg-auth {
+  background-color: #f5f6f8;
+}
+
+.auth-register-card {
+  max-width: 920px;
+  border-radius: 18px;
+}
+
+.auth-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2f80ed, #a100ff);
+}
+
+.auth-input {
+  background-color: #f8f9fb;
+  border: 1px solid #dde2e7;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.auth-input:focus {
+  border-color: #7b61ff;
+  box-shadow: 0 0 0 0.2rem rgba(123, 97, 255, 0.15);
+}
+
+.btn-auth-gradient {
+  background: linear-gradient(90deg, #2f80ed, #a100ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(123, 97, 255, 0.25);
+}
+
+.btn-auth-gradient:hover {
+  color: white;
+  opacity: 0.96;
+/*=====================================================================
+    Archivo: styles.css
+    autor: NodeNinjas
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+/*=====================================================================
+
+    GLOBAL STYLES
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f9;
+        margin:0;
+        padding:40px;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    input{
+        padding:10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    button{
+        padding: 10px;
+        background: #007bff ;
+        color: white;
+        border:none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover{
+        background: #0056b3;
+    }
+
+/*=====================================================================
+    USER PAGE STYLES
+    Ultima actualización: 07/03/2026
+  =====================================================================
+*/
+
+.main-container{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.user-list-container{
+    flex:1;
+    position: sticky;
+    top: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+#formUsuario{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.form-container{
+    flex:1;
+}
+#listaUsuarios{
+    margin-top: 20px;
+}
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#tablaUser{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#tablaUser th:nth-child(1),
+#tablaUser td:nth-child(1) {
+    width: 25%;
+}
+
+#tablaUser th:nth-child(2),
+#tablaUser td:nth-child(2) {
+    width: 35%;
+}
+
+#tablaUser th:nth-child(3),
+#tablaUser td:nth-child(3) {
+    width: 20%;
+}
+
+#tablaUser th:nth-child(4),
+#tablaUser td:nth-child(4) {
+    width: 20%;
+}
+
+#tablaUser th,
+#tablaUser td {
+    padding: 10px;
+    text-align: left;
 }
