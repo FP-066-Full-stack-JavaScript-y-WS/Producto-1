@@ -1,3 +1,247 @@
+/*=====================================================================
+    Archivo: styles.css
+    Autor: NodeNinjas
+    Descripción:
+    Hoja de estilos principal del dashboard.
+    Mantiene la línea visual base del equipo:
+    - tipografía Arial
+    - fondo claro
+    - azul principal similar al del compañero
+    Además, se añade un color morado para distinguir
+    visualmente las demandas de empleo.
+
+/*=====================================================================
+    1. ESTILOS GLOBALES
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    color: #222;
+}
+
+h1, h2, h3, p{
+    margin-top: 0;
+}
+
+button{
+    padding: 10px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+}
+
+button:hover{
+    background: #0056b3;
+}
+
+/*=====================================================================
+    2. NAVBAR
+
+.navbar-brand-custom{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+}
+
+.navbar-brand-custom:hover{
+    color: #222;
+}
+
+.brand-logo{
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: inline-block;
+    background: linear-gradient(135deg, #007bff, #6f42c1);
+}
+
+.user-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f3f5;
+    padding: 8px 14px;
+    border-radius: 12px;
+}
+
+.user-avatar{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6f42c1;
+    color: white;
+    font-weight: bold;
+}
+
+/*=====================================================================
+    3. CONTENIDO GENERAL DEL DASHBOARD
+
+.dashboard-container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.dashboard-hero h1{
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.dashboard-hero p{
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.dashboard-section{
+    margin-bottom: 50px;
+}
+
+.section-title{
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-left: 14px;
+    position: relative;
+}
+
+.section-title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 4px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+.oferta-line::before{
+    background-color: #007bff;
+}
+
+.demanda-line::before{
+    background-color: #6f42c1;
+}
+
+.section-footer{
+    text-align: center;
+    margin-top: 25px;
+}
+
+/*=====================================================================
+    4. TARJETAS DEL DASHBOARD
+
+.dashboard-card{
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.oferta-card{
+    border-left: 5px solid #007bff;
+}
+
+.demanda-card{
+    border-left: 5px solid #6f42c1;
+}
+
+.card-badge{
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+}
+
+.badge-oferta{
+    background-color: #e7f1ff;
+    color: #007bff;
+}
+
+.badge-demanda{
+    background-color: #efe7ff;
+    color: #6f42c1;
+}
+
+.dashboard-card h3{
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.card-subtitle{
+    color: #666;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.card-details{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #555;
+}
+
+.card-details li{
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.card-button{
+    margin-top: auto;
+    width: 100%;
+}
+
+.demanda-btn{
+    background: #6f42c1;
+}
+
+.demanda-btn:hover{
+    background: #59359c;
+}
+
+/*=====================================================================
+    5. RESPONSIVE
+    Ajustes para tablets y móviles
+
+@media (max-width: 768px){
+    .dashboard-hero h1{
+        font-size: 1.8rem;
+    }
+
+    .section-title{
+        font-size: 1.5rem;
+    }
+
+    .dashboard-card h3{
+        font-size: 1.3rem;
+    }
 body {
   font-family: Arial, sans-serif;
 }
