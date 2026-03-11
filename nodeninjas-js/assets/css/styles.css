@@ -1,18 +1,3 @@
-/*=====================================================================
-    Archivo: styles.css
-    Autor: NodeNinjas
-    Descripción:
-    Hoja de estilos principal del dashboard.
-    Mantiene la línea visual base del equipo:
-    - tipografía Arial
-    - fondo claro
-    - azul principal similar al del compañero
-    Además, se añade un color morado para distinguir
-    visualmente las demandas de empleo.
-
-/*=====================================================================
-    1. ESTILOS GLOBALES
-
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f9;
@@ -39,8 +24,7 @@ button:hover{
     background: #0056b3;
 }
 
-/*=====================================================================
-    2. NAVBAR
+/* NAVBAR */
 
 .navbar-brand-custom{
     display: flex;
@@ -84,8 +68,7 @@ button:hover{
     font-weight: bold;
 }
 
-/*=====================================================================
-    3. CONTENIDO GENERAL DEL DASHBOARD
+/* DASHBOARD */
 
 .dashboard-container{
     max-width: 1400px;
@@ -148,8 +131,7 @@ button:hover{
     margin-top: 25px;
 }
 
-/*=====================================================================
-    4. TARJETAS DEL DASHBOARD
+/* CARDS */
 
 .dashboard-card{
     background: white;
@@ -226,118 +208,52 @@ button:hover{
     background: #59359c;
 }
 
-/*=====================================================================
-    5. RESPONSIVE
-    Ajustes para tablets y móviles
+/* AUTH */
 
-@media (max-width: 768px){
-    .dashboard-hero h1{
-        font-size: 1.8rem;
-    }
-
-    .section-title{
-        font-size: 1.5rem;
-    }
-
-    .dashboard-card h3{
-        font-size: 1.3rem;
-    }
-body {
-  font-family: Arial, sans-serif;
+.bg-auth{
+    background-color: #f5f6f8;
 }
 
-.bg-auth {
-  background-color: #f5f6f8;
+.auth-register-card{
+    max-width: 920px;
+    border-radius: 18px;
 }
 
-.auth-register-card {
-  max-width: 920px;
-  border-radius: 18px;
+.auth-logo{
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f80ed, #a100ff);
 }
 
-.auth-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #2f80ed, #a100ff);
+.auth-input{
+    background-color: #f8f9fb;
+    border: 1px solid #dde2e7;
+    border-radius: 10px;
+    padding: 12px 14px;
 }
 
-.auth-input {
-  background-color: #f8f9fb;
-  border: 1px solid #dde2e7;
-  border-radius: 10px;
-  padding: 12px 14px;
+.auth-input:focus{
+    border-color: #7b61ff;
+    box-shadow: 0 0 0 0.2rem rgba(123, 97, 255, 0.15);
 }
 
-.auth-input:focus {
-  border-color: #7b61ff;
-  box-shadow: 0 0 0 0.2rem rgba(123, 97, 255, 0.15);
+.btn-auth-gradient{
+    background: linear-gradient(90deg, #2f80ed, #a100ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(123, 97, 255, 0.25);
 }
 
-.btn-auth-gradient {
-  background: linear-gradient(90deg, #2f80ed, #a100ff);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 18px;
-  font-weight: 600;
-  box-shadow: 0 6px 16px rgba(123, 97, 255, 0.25);
+.btn-auth-gradient:hover{
+    color: white;
+    opacity: 0.96;
 }
 
-.btn-auth-gradient:hover {
-  color: white;
-  opacity: 0.96;
-/*=====================================================================
-    Archivo: styles.css
-    autor: NodeNinjas
-    Ultima actualización: 07/03/2026
-  =====================================================================
-*/
-
-/*=====================================================================
-
-    GLOBAL STYLES
-    Ultima actualización: 07/03/2026
-  =====================================================================
-*/
-
-    body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f6f9;
-        margin:0;
-        padding:40px;
-    }
-
-    h2{
-        text-align: center;
-    }
-
-    input{
-        padding:10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-
-    button{
-        padding: 10px;
-        background: #007bff ;
-        color: white;
-        border:none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    button:hover{
-        background: #0056b3;
-    }
-
-/*=====================================================================
-    USER PAGE STYLES
-    Ultima actualización: 07/03/2026
-  =====================================================================
-*/
+/* USER PANEL */
 
 .main-container{
     display: flex;
@@ -352,16 +268,26 @@ body {
     max-height: 500px;
     overflow-y: auto;
 }
+
+.form-container{
+    flex:1;
+}
+
 #formUsuario{
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-.form-container{
-    flex:1;
-}
+
 #listaUsuarios{
     margin-top: 20px;
+}
+
+input{
+    padding:10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 .card{
@@ -374,6 +300,8 @@ body {
     margin-bottom: 10px;
 }
 
+/* TABLA */
+
 #tablaUser{
     width: 100%;
     border-collapse: collapse;
@@ -381,27 +309,36 @@ body {
 }
 
 #tablaUser th:nth-child(1),
-#tablaUser td:nth-child(1) {
-    width: 25%;
-}
+#tablaUser td:nth-child(1){ width: 25%; }
 
 #tablaUser th:nth-child(2),
-#tablaUser td:nth-child(2) {
-    width: 35%;
-}
+#tablaUser td:nth-child(2){ width: 35%; }
 
 #tablaUser th:nth-child(3),
-#tablaUser td:nth-child(3) {
-    width: 20%;
-}
+#tablaUser td:nth-child(3){ width: 20%; }
 
 #tablaUser th:nth-child(4),
-#tablaUser td:nth-child(4) {
-    width: 20%;
-}
+#tablaUser td:nth-child(4){ width: 20%; }
 
 #tablaUser th,
-#tablaUser td {
+#tablaUser td{
     padding: 10px;
     text-align: left;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px){
+
+    .dashboard-hero h1{
+        font-size: 1.8rem;
+    }
+
+    .section-title{
+        font-size: 1.5rem;
+    }
+
+    .dashboard-card h3{
+        font-size: 1.3rem;
+    }
 }
