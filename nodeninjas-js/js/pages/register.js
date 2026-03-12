@@ -36,7 +36,7 @@ formulario.addEventListener("submit", function (event) {
     formulario.reset();
 
     setTimeout(function () {
-        window.location.href = "login.html";
+        window.location.href = "dashboard.html";
     }, 5000);
 });
 
