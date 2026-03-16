@@ -1,4 +1,5 @@
 import { iniciarSesion } from "../modules/auth.js";
+import { usuarios } from "../data/datos.js";
 
 const formulario = document.getElementById("loginForm");
 const contenedorMensaje = document.getElementById("loginMensaje");
@@ -31,3 +32,20 @@ function mostrarMensaje(texto, tipo) {
         </div>
     `;
 }
+
+function mostrarUsuariosPrueba() {
+
+    const lista = document.getElementById("usuarios-prueba");
+
+    if (!lista) return;
+
+    lista.innerHTML = usuarios.map(usuario => `
+        <li class="mb-1">
+            <strong>${usuario.email}</strong>
+            <span class="text-muted"> / ${usuario.password}</span>
+        </li>
+    `).join("");
+
+}
+
+document.addEventListener("DOMContentLoaded", mostrarUsuariosPrueba);

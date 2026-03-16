@@ -37,7 +37,7 @@ formulario.addEventListener("submit", function (event) {
 
     setTimeout(function () {
         window.location.href = "dashboard.html";
-    }, 5000);
+    }, 1500);
 });
 
 function mostrarMensaje(texto, tipo) {

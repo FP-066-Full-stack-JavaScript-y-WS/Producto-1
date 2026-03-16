@@ -3,16 +3,10 @@
  * - Permite a los usuarios crear nuevas ofertas o demandas y también borrarlas.
  */
 
-import { ofertas, demandas, usuarioActual } from '../data/datos.js';
+import { ofertas, demandas } from '../data/datos.js';
 
 const form = document.getElementById('form-ofertas');
 const tabla = document.getElementById('tabla-ofertas');
-const userDisplay = document.getElementById('user-display');
-
-// 1. Mostrar usuario con login
-if (userDisplay) {
-    userDisplay.textContent = usuarioActual.email;
-}
 
 /**
  * Función principal para renderizar la tabla
