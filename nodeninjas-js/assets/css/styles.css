@@ -24,6 +24,29 @@ button:hover{
     background: #0056b3;
 }
 
+button.btn-auth-gradient,
+a.btn-auth-gradient {
+    background: linear-gradient(90deg, #2f80ed, #a100ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(123, 97, 255, 0.25);
+}
+
+button.btn-auth-gradient:hover,
+button.btn-auth-gradient:focus,
+button.btn-auth-gradient:active,
+a.btn-auth-gradient:hover,
+a.btn-auth-gradient:focus,
+a.btn-auth-gradient:active {
+    background: linear-gradient(90deg, #2f80ed, #a100ff);
+    color: white;
+    border: none;
+    opacity: 0.96;
+}
+
 /* NAVBAR */
 
 .navbar-brand-custom{
@@ -298,6 +321,50 @@ input{
     border: 1px solid #ddd;
     border-radius: 6px;
     margin-bottom: 10px;
+}
+
+.auth-login-wrapper{
+    max-width: 1100px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.auth-gradient-panel{
+    min-height: 650px;
+    background: linear-gradient(135deg, #2f80ed, #a100ff);
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-gradient-content{
+    max-width: 420px;
+}
+
+.auth-gradient-content h2{
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.auth-gradient-content p{
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+}
+
+.auth-link{
+    color: #6f42c1;
+}
+
+.auth-link:hover{
+    color: #2f80ed;
+}
+
+.min-vh-50{
+    min-height: 650px;
+}
+
+nav .nav-link {
+    margin-right: 12px;
+    font-weight: 500;
 }
 
 /* TABLA */

@@ -1,5 +1,11 @@
 import { usuarios } from "../data/datos.js";
 
+let usuarioActual = null;
+
+function obtenerUsuarios() {
+    return usuarios;
+}
+
 export function registrarUsuario(datosFormulario) {
     const { nombre, dni, email, telefono, password, confirmPassword } = datosFormulario;
 
@@ -23,8 +29,10 @@ export function registrarUsuario(datosFormulario) {
         };
     }
 
-    const emailExiste = usuarios.some(function (usuario) {
-        return usuario.email === email;
+    const listaUsuarios = obtenerUsuarios();
+
+    const emailExiste = listaUsuarios.some(function (usuario) {
+        return usuario.email.toLowerCase() === email.toLowerCase();
     });
 
     if (emailExiste) {
@@ -34,7 +42,7 @@ export function registrarUsuario(datosFormulario) {
         };
     }
 
-    const nuevoId = usuarios.length > 0 ? usuarios[usuarios.length -1].id + 1 : 1;
+    const nuevoId = listaUsuarios.length > 0 ? listaUsuarios[listaUsuarios.length - 1].id + 1 : 1;
 
     const nuevoUsuario = {
         id: nuevoId,
@@ -45,7 +53,8 @@ export function registrarUsuario(datosFormulario) {
         password
     };
 
-    usuarios.push(nuevoUsuario);
+    listaUsuarios.push(nuevoUsuario);
+    usuarioActual = nuevoUsuario;
 
     return {
         ok: true,
@@ -54,5 +63,45 @@ export function registrarUsuario(datosFormulario) {
     };
 }
 
+export function iniciarSesion(email, password) {
+    if (!email || !password) {
+        return {
+            ok: false,
+            mensaje: "Debes completar email y contraseña."
+        };
+    }
 
-    
+    const listaUsuarios = obtenerUsuarios();
+
+    const usuarioEncontrado = listaUsuarios.find(function (usuario) {
+        return usuario.email.toLowerCase() === email.toLowerCase() &&
+               usuario.password === password;
+    });
+
+    if (!usuarioEncontrado) {
+        return {
+            ok: false,
+            mensaje: "Email o contraseña incorrectos."
+        };
+    }
+
+    usuarioActual = usuarioEncontrado;
+
+    return {
+        ok: true,
+        usuario: usuarioEncontrado,
+        mensaje: `Bienvenido/a, ${usuarioEncontrado.nombre}.`
+    };
+}
+
+export function obtenerUsuarioActual() {
+    return usuarioActual;
+}
+
+export function cerrarSesion() {
+    usuarioActual = null;
+}
+
+export function haySesionActiva() {
+    return usuarioActual !== null;
+}

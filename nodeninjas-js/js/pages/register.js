@@ -36,8 +36,8 @@ formulario.addEventListener("submit", function (event) {
     formulario.reset();
 
     setTimeout(function () {
-        window.location.href = "login.html";
-    }, 5000);
+        window.location.href = "dashboard.html";
+    }, 1500);
 });
 
 function mostrarMensaje(texto, tipo) {
