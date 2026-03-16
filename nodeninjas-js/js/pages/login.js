@@ -36,15 +36,20 @@ function mostrarMensaje(texto, tipo) {
 function mostrarUsuariosPrueba() {
 
     const lista = document.getElementById("usuarios-prueba");
+    const template = document.getElementById("usuario-template");
 
-    if (!lista) return;
+    if (!lista || !template) return;
 
-    lista.innerHTML = usuarios.map(usuario => `
-        <li class="mb-1">
-            <strong>${usuario.email}</strong>
-            <span class="text-muted"> / ${usuario.password}</span>
-        </li>
-    `).join("");
+    usuarios.forEach(usuario => {
+
+        const clone = template.content.cloneNode(true);
+
+        clone.querySelector(".usuario-email").textContent = usuario.email;
+        clone.querySelector(".usuario-password").textContent = " / " + usuario.password;
+
+        lista.appendChild(clone);
+
+    });
 
 }
 
