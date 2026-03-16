@@ -116,7 +116,7 @@ function pintarDemandas() {
  */
 function activarEventos() {
     btnPublicar.addEventListener("click", () => {
-        alert("Funcionalidad pendiente de conectar con la pantalla de gestión de ofertas y demandas.");
+        window.location.href = "ofertas.html";
     });
 
     btnVerOfertas.addEventListener("click", () => {

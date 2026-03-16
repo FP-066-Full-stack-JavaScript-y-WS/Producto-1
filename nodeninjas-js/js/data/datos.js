@@ -70,4 +70,23 @@ export const demandas = [
 ];
 
 //creo un array vacío para guardar cada usuario que se cree
-export const usuarios = []
+export const usuarios = [
+    {
+        id: 1,
+        nombre: "Ana García",
+        email: "ana@empleo.com",
+        password: "12345678"
+    },
+    {
+        id: 2,
+        nombre: "Carlos López",
+        email: "carlos@empleo.com",
+        password: "12345678"
+    },
+    {
+        id: 3,
+        nombre: "Lucía Martínez",
+        email: "lucia@empleo.com",
+        password: "12345678"
+    }
+];
