@@ -3,88 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Ofertas y Demandas - NodeNinjas</title>
+    <title>Publicar anuncio - Plataforma Empleo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .option-box { border: 2px solid #e0e0e0; border-radius: 12px; transition: 0.3s; padding: 20px; text-align: center; }
+        .option-box:hover, .option-box.active { border-color: #448aff; cursor: pointer; }
+        .option-box.active { background-color: #f0f7ff; }
+        .option-box.active i, .option-box.active h6, .option-box.active p { color: #448aff !important; }
+        .form-control, .form-select { background-color: #f8f9fa; border: 1px solid #e0e0e0; padding: 12px 15px; border-radius: 8px; font-size: 0.95rem; }
+        .form-label { font-weight: 500; font-size: 0.9rem; margin-bottom: 8px; }
+        .btn-gradient { background: linear-gradient(90deg, #448aff, #9c27b0); border: none; color: white; padding: 12px 0; border-radius: 8px; font-weight: bold; }
+        .text-oferta-color { color: #448aff !important; }
+    </style>
 </head>
 <body class="bg-light">
 
-    <div id="navbar-container"></div>
-
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col">
-                <h2 class="fw-bold text-secondary">Gestión de Ofertas y Demandas</h2>
-                <p class="text-muted">Alta y baja de publicaciones</p>
+    <nav class="navbar navbar-light bg-white border-bottom mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="../index.html">
+                <div class="bg-primary rounded-2 me-2" style="width: 24px; height: 24px; background: linear-gradient(135deg, #448aff, #9c27b0) !important;"></div>
+                Plataforma Empleo
+            </a>
+            <div class="d-flex align-items-center">
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px; background-color: #e0e0e0 !important; color: white;">U</div>
+                <span id="user-display" class="small fw-bold text-secondary">Usuario</span>
             </div>
         </div>
+    </nav>
 
-        <div class="card shadow-sm border-0 mb-5">
-            <div class="card-header bg-white py-3">
-                <h5 class="mb-0 text-primary fw-bold">Nueva Publicación</h5>
-            </div>
-            <div class="card-body">
-                <form id="form-ofertas">
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <label class="form-label small fw-bold">Tipo</label>
-                            <select id="tipo" class="form-select" required>
-                                <option value="oferta">Oferta de Empleo</option>
-                                <option value="demanda">Demanda Laboral</option>
-                            </select>
+    <div class="container d-flex justify-content-center mb-5">
+        <div class="card shadow-sm border-0 p-4 p-md-5" style="border-radius: 16px; width: 100%; max-width: 800px;">
+            <form id="form-ofertas">
+                <div class="mb-5">
+                    <label class="form-label">Tipo de publicación</label>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <input type="radio" name="tipo_pub" id="tipo_oferta" value="oferta" class="d-none" checked>
+                            <label for="tipo_oferta" class="option-box active w-100 h-100">
+                                <i class="bi bi-briefcase-fill d-block text-muted mb-3" style="font-size: 2.5rem;"></i>
+                                <h6 class="fw-bold mb-1 text-oferta-color">Oferta de empleo</h6>
+                                <p class="text-muted small mb-0">Empresa busca candidato</p>
+                            </label>
                         </div>
-                        <div class="col-md-9">
-                            <label class="form-label small fw-bold">Título del puesto / Perfil</label>
-                            <input type="text" id="titulo" class="form-control" placeholder="Ej: Desarrollador Java Junior" required>
-                        </div>
-                        <div class="col-md-5">
-                            <label class="form-label small fw-bold">Empresa o Nombre</label>
-                            <input type="text" id="entidad" class="form-control" placeholder="Nombre visible" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label small fw-bold">Ubicación</label>
-                            <input type="text" id="ubicacion" class="form-control" placeholder="Ciudad, País" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label small fw-bold">Modalidad</label>
-                            <select id="modalidad" class="form-select">
-                                <option value="Remoto">Remoto</option>
-                                <option value="Presencial">Presencial</option>
-                                <option value="Híbrido">Híbrido</option>
-                            </select>
-                        </div>
-                        <div class="col-12 text-end mt-4">
-                            <button type="reset" class="btn btn-light me-2">Limpiar</button>
-                            <button type="submit" class="btn btn-primary px-4">Publicar Ahora</button>
+                        <div class="col-md-6">
+                            <input type="radio" name="tipo_pub" id="tipo_demanda" value="demanda" class="d-none">
+                            <label for="tipo_demanda" class="option-box w-100 h-100">
+                                <i class="bi bi-person-bounding-box d-block text-muted mb-3" style="font-size: 2.5rem;"></i>
+                                <h6 class="fw-bold mb-1 text-muted">Demanda de empleo</h6>
+                                <p class="text-muted small mb-0">Candidato busca trabajo</p>
+                            </label>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                </div>
 
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-dark text-white py-3">
-                <h5 class="mb-0">Publicaciones Actuales</h5>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Categoría</th>
-                            <th>Título</th>
-                            <th>Autor / Entidad</th>
-                            <th>Ubicación</th>
-                            <th class="text-center">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-ofertas">
-                        </tbody>
-                </table>
-            </div>
+                <div class="row g-4 mb-4">
+                    <div class="col-12">
+                        <label class="form-label">Título del puesto *</label>
+                        <input type="text" id="titulo" class="form-control" placeholder="Ej: Desarrollador Full Stack Senior" required>
+                    </div>
+                    <div class="col-12">
+                        <label id="label_entidad" class="form-label">Nombre de la empresa *</label>
+                        <input type="text" id="entidad" class="form-control" placeholder="Ej: TechCorp Solutions" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Ubicación *</label>
+                        <input type="text" id="ubicacion" class="form-control" placeholder="Ej: Madrid, España" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Tipo de contrato *</label>
+                    <select id="modalidad" class="form-select" required>
+                        <option value="" selected disabled>Seleccionar tipo...</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Remoto">Remoto</option>
+                        <option value="Híbrido">Híbrido</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Descripción *</label>
+                    <textarea id="descripcion" class="form-control" rows="8" placeholder="Describe las responsabilidades, requisitos y beneficios del puesto..."></textarea>
+                </div>
+
+                <div class="mb-5">
+                    <label class="form-label text-muted">Rango salarial (opcional)</label>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <input type="number" id="salario_min" class="form-control" placeholder="Mínimo (€)">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" id="salario_max" class="form-control" placeholder="Máximo (€)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 justify-content-center">
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <button type="submit" class="btn btn-gradient w-100">Publicar</button>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <button type="reset" id="btn-cancelar" class="btn btn-light w-100 text-muted fw-bold p-3" style="background-color: #f1f1f1 !important; border-radius: 8px;">
+                            <i class="bi bi-x me-1"></i> Cancelar
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
     <script type="module" src="../js/pages/ofertas.js"></script>
+    <script>
+        // Lógica simple para los selectores visuales (active box)
+        const radioOferta = document.getElementById('tipo_oferta');
+        const radioDemanda = document.getElementById('tipo_demanda');
+        const boxOferta = radioOferta.nextElementSibling;
+        const boxDemanda = radioDemanda.nextElementSibling;
+        const labelEntidad = document.getElementById('label_entidad');
+
+        [boxOferta, boxDemanda].forEach(box => {
+            box.addEventListener('click', () => {
+                boxOferta.classList.toggle('active', box === boxOferta);
+                boxDemanda.classList.toggle('active', box === boxDemanda);
+                
+                // Cambiar el label dinámicamente según el mockup
+                labelEntidad.innerText = box === boxOferta ? "Nombre de la empresa *" : "Tu nombre completo *";
+            });
+        });
+    </script>
 </body>
 </html>
 

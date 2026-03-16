@@ -1,79 +1,77 @@
-/**
- * Interfaz 3: Gestión de Ofertas y Demandas
- * - Permite a los usuarios crear nuevas ofertas o demandas y también borrarlas.
- */
-
-import { ofertas, demandas } from '../data/datos.js';
+import { ofertas, demandas, usuarioActual } from '../data/datos.js';
 
 const form = document.getElementById('form-ofertas');
-const tabla = document.getElementById('tabla-ofertas');
+const contenedor = document.getElementById('contenedor-cards');
+const userDisplay = document.getElementById('user-display');
 
-/**
- * Función principal para renderizar la tabla
- */
+if (userDisplay && usuarioActual) {
+    userDisplay.textContent = usuarioActual.email;
+}
+
 function actualizarVista() {
-    tabla.innerHTML = '';
-
-    // Pintar ambas listas
-    ofertas.forEach(item => renderizarFila(item, 'oferta'));
-    demandas.forEach(item => renderizarFila(item, 'demanda'));
+    contenedor.innerHTML = '';
+    // Mostramos todas las ofertas y demandas como cards
+    ofertas.forEach(item => renderizarCard(item, 'oferta'));
+    demandas.forEach(item => renderizarCard(item, 'demanda'));
 }
 
-/**
- * Crea las filas de la tabla dinámicamente
- */
-function renderizarFila(item, tipo) {
-    const fila = document.createElement('tr');
-    // Diferenciación visual por color y tipo (oferta o demanda)
-    const colorClase = tipo === 'oferta' ? 'table-info' : 'table-success';
-    fila.className = colorClase;
+function renderizarCard(item, tipo) {
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-lg-4';
 
-    fila.innerHTML = `
-        <td><strong>${tipo.toUpperCase()}</strong></td>
-        <td>${item.titulo}</td>
-        <td>${tipo === 'oferta' ? item.empresa : item.demandante}</td>
-        <td>${item.ubicacion}</td>
-        <td class="text-center">
-            <button class="btn btn-danger btn-sm" onclick="eliminarPublicacion(${item.id}, '${tipo}')">Baja</button>
-        </td>
+    const colorClase = tipo === 'oferta' ? 'border-oferta' : 'border-demanda';
+    const textClase = tipo === 'oferta' ? 'text-oferta' : 'text-demanda';
+    const btnClase = tipo === 'oferta' ? 'btn-oferta' : 'btn-demanda';
+    const label = tipo === 'oferta' ? 'Oferta de empleo' : 'Demanda de empleo';
+
+    col.innerHTML = `
+        <div class="card h-100 border-0 shadow-sm ${colorClase} p-3">
+            <div class="card-body">
+                <span class="badge bg-light ${textClase} mb-2 fw-normal" style="font-size: 0.75rem;">${label}</span>
+                <h5 class="fw-bold mb-1">${item.titulo}</h5>
+                <p class="text-muted small mb-3">${tipo === 'oferta' ? item.empresa : item.demandante}</p>
+                
+                <div class="small text-muted mb-1"><i class="bi bi-geo-alt me-2"></i>${item.ubicacion}</div>
+                <div class="small text-muted mb-1"><i class="bi bi-briefcase me-2"></i>${item.modalidad || 'Tiempo completo'}</div>
+                <div class="small text-muted mb-4"><i class="bi bi-calendar3 me-2"></i>Publicado recientemente</div>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn ${btnClase} btn-sm flex-grow-1 fw-bold">Ver más</button>
+                    <button class="btn btn-outline-danger btn-sm" onclick="eliminarPublicacion(${item.id}, '${tipo}')">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     `;
-    tabla.appendChild(fila);
+    contenedor.appendChild(col);
 }
 
-// 2. Manejo del formulario de creación
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
     const tipo = document.getElementById('tipo').value;
     const nuevo = {
         id: Date.now(),
         titulo: document.getElementById('titulo').value,
         ubicacion: document.getElementById('ubicacion').value,
         modalidad: document.getElementById('modalidad').value,
-        fecha: "Recién publicado"
+        empresa: document.getElementById('entidad').value,
+        demandante: document.getElementById('entidad').value
     };
 
-    // Asignar autor según el tipo que es
-    if (tipo === 'oferta') {
-        nuevo.empresa = document.getElementById('entidad').value;
-        ofertas.push(nuevo);
-    } else {
-        nuevo.demandante = document.getElementById('entidad').value;
-        demandas.push(nuevo);
-    }
+    if (tipo === 'oferta') ofertas.unshift(nuevo); // Añadir al principio
+    else demandas.unshift(nuevo);
 
     form.reset();
     actualizarVista();
+    // Cerrar el formulario tras publicar
+    bootstrap.Collapse.getInstance(document.getElementById('collapseForm')).hide();
 });
 
-// 3. Función global para eliminar (usada por el click del botón)
 window.eliminarPublicacion = (id, tipo) => {
-    const confirmacion = confirm(`¿Estás seguro de que deseas dar de baja esta ${tipo}?`);
-    
-    if (confirmacion) {
+    if (confirm('¿Dar de baja esta publicación?')) {
         const array = tipo === 'oferta' ? ofertas : demandas;
         const index = array.findIndex(i => i.id === id);
-        
         if (index !== -1) {
             array.splice(index, 1);
             actualizarVista();
@@ -81,5 +79,4 @@ window.eliminarPublicacion = (id, tipo) => {
     }
 };
 
-// Carga inicial
 actualizarVista();
