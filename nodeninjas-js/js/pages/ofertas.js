@@ -1,16 +1,15 @@
 /**
  * Interfaz 3: Gestión de Ofertas y Demandas
- * Descripción: Lógica para listar, añadir y dar de baja publicaciones.
+ * - Permite a los usuarios crear nuevas ofertas o demandas y también borrarlas.
  */
 
 import { ofertas, demandas, usuarioActual } from '../data/datos.js';
 
-// Elementos del DOM
 const form = document.getElementById('form-ofertas');
 const tabla = document.getElementById('tabla-ofertas');
 const userDisplay = document.getElementById('user-display');
 
-// 1. Mostrar usuario logueado en la navegación
+// 1. Mostrar usuario con login
 if (userDisplay) {
     userDisplay.textContent = usuarioActual.email;
 }
@@ -53,14 +52,14 @@ form.addEventListener('submit', (e) => {
     
     const tipo = document.getElementById('tipo').value;
     const nuevo = {
-        id: Date.now(), // ID único basado en timestamp
+        id: Date.now(),
         titulo: document.getElementById('titulo').value,
         ubicacion: document.getElementById('ubicacion').value,
         modalidad: document.getElementById('modalidad').value,
         fecha: "Recién publicado"
     };
 
-    // Asignar autor según el tipo
+    // Asignar autor según el tipo que es
     if (tipo === 'oferta') {
         nuevo.empresa = document.getElementById('entidad').value;
         ofertas.push(nuevo);
@@ -73,7 +72,7 @@ form.addEventListener('submit', (e) => {
     actualizarVista();
 });
 
-// 3. Función global para eliminar (usada por el onclick del botón)
+// 3. Función global para eliminar (usada por el click del botón)
 window.eliminarPublicacion = (id, tipo) => {
     const confirmacion = confirm(`¿Estás seguro de que deseas dar de baja esta ${tipo}?`);
     
