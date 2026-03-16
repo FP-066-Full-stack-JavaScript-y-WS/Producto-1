@@ -10,13 +10,12 @@
     - Gestionar eventos básicos de los botones
 =====================================================================*/
 
-import { usuarioActual, ofertas, demandas } from "../data/datos.js";
+import { ofertas, demandas } from "../data/datos.js";
 
 /*=====================================================================
     1. REFERENCIAS A ELEMENTOS DEL DOM
     Se seleccionan los elementos HTML que se van a manipular.
 =====================================================================*/
-const usuarioLogueado = document.getElementById("usuario-logueado");
 const contenedorOfertas = document.getElementById("contenedor-ofertas");
 const contenedorDemandas = document.getElementById("contenedor-demandas");
 
@@ -27,15 +26,6 @@ const btnVerDemandas = document.getElementById("btn-ver-demandas");
 /*=====================================================================
     2. FUNCIONES DE VISUALIZACIÓN
 =====================================================================*/
-
-/**
- * Muestra el nombre del usuario actual en la parte superior.
- */
-function mostrarUsuario() {
-    if (usuarioActual && usuarioActual.nombre) {
-        usuarioLogueado.textContent = usuarioActual.nombre;
-    }
-}
 
 /**
  * Genera el HTML de una tarjeta de oferta.
@@ -161,7 +151,6 @@ function activarEventos() {
  * Inicializa el dashboard cuando el DOM está cargado.
  */
 function iniciarDashboard() {
-    mostrarUsuario();
     pintarOfertas();
     pintarDemandas();
     activarEventos();

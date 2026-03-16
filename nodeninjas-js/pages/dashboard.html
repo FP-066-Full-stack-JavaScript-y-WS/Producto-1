@@ -19,25 +19,7 @@
 </head>
 <body>
 
-    <!-- =========================================================
-         BARRA SUPERIOR / NAVBAR
-         Muestra el nombre de la aplicación y el usuario actual
-    ========================================================== -->
-    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
-        <div class="container-fluid px-4">
-            <!-- Marca o nombre de la aplicación -->
-            <a class="navbar-brand navbar-brand-custom" href="#">
-                <span class="brand-logo"></span>
-                <span>Plataforma Empleo</span>
-            </a>
-
-            <!-- Caja del usuario logueado -->
-            <div class="user-box">
-                <span class="user-avatar">U</span>
-                <span id="usuario-logueado">Usuario</span>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-container"></div>
 
     <!-- =========================================================
          CONTENIDO PRINCIPAL DEL DASHBOARD
@@ -93,3 +75,6 @@
     <script type="module" src="../js/pages/dashboard.js"></script>
 </body>
 </html>
+
+<script type="module" src="../js/data/shared/navbar.js"></script>
+<script type="module" src="../js/pages/dashboard.js"></script>

@@ -362,6 +362,11 @@ input{
     min-height: 650px;
 }
 
+nav .nav-link {
+    margin-right: 12px;
+    font-weight: 500;
+}
+
 /* TABLA */
 
 #tablaUser{

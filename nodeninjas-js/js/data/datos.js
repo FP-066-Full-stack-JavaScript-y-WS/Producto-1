@@ -7,16 +7,6 @@
     por lo que toda la información se guarda en arrays en memoria.
 
 /**
- * Usuario que aparece como logueado en la interfaz.
- * En este producto es un dato de prueba.
- */
-export const usuarioActual = {
-    id: 1,
-    nombre: "Usuario",
-    email: "usuario@empleo.com"
-};
-
-/**
  * Array con las ofertas de empleo.
  * Cada objeto representa una oferta que se mostrará en el dashboard.
  */

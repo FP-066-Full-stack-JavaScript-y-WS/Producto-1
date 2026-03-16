@@ -1,23 +1,9 @@
 import { usuarios } from "../data/datos.js";
 
-const CLAVE_USUARIOS = "usuariosPlataformaEmpleo";
-const CLAVE_USUARIO_ACTUAL = "usuarioActualPlataformaEmpleo";
-
-function inicializarUsuarios() {
-    const usuariosGuardados = localStorage.getItem(CLAVE_USUARIOS);
-
-    if (!usuariosGuardados) {
-        localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(usuarios));
-    }
-}
+let usuarioActual = null;
 
 function obtenerUsuarios() {
-    inicializarUsuarios();
-    return JSON.parse(localStorage.getItem(CLAVE_USUARIOS)) || [];
-}
-
-function guardarUsuarios(listaUsuarios) {
-    localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(listaUsuarios));
+    return usuarios;
 }
 
 export function registrarUsuario(datosFormulario) {
@@ -68,7 +54,7 @@ export function registrarUsuario(datosFormulario) {
     };
 
     listaUsuarios.push(nuevoUsuario);
-    guardarUsuarios(listaUsuarios);
+    usuarioActual = nuevoUsuario;
 
     return {
         ok: true,
@@ -99,7 +85,7 @@ export function iniciarSesion(email, password) {
         };
     }
 
-    localStorage.setItem(CLAVE_USUARIO_ACTUAL, JSON.stringify(usuarioEncontrado));
+    usuarioActual = usuarioEncontrado;
 
     return {
         ok: true,
@@ -109,18 +95,13 @@ export function iniciarSesion(email, password) {
 }
 
 export function obtenerUsuarioActual() {
-    const usuarioGuardado = localStorage.getItem(CLAVE_USUARIO_ACTUAL);
-
-    if (!usuarioGuardado) {
-        return null;
-    }
-
-    return JSON.parse(usuarioGuardado);
+    return usuarioActual;
 }
 
 export function cerrarSesion() {
-    localStorage.removeItem(CLAVE_USUARIO_ACTUAL);
+    usuarioActual = null;
 }
 
-
-    
+export function haySesionActiva() {
+    return usuarioActual !== null;
+}
