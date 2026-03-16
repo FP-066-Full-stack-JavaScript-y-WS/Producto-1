@@ -1,12 +1,7 @@
-import { ofertas, demandas, usuarioActual } from '../data/datos.js';
+import { ofertas, demandas } from '../data/datos.js';
 
 const form = document.getElementById('form-ofertas');
 const contenedor = document.getElementById('contenedor-cards');
-const userDisplay = document.getElementById('user-display');
-
-if (userDisplay && usuarioActual) {
-    userDisplay.textContent = usuarioActual.email;
-}
 
 function actualizarVista() {
     contenedor.innerHTML = '';
@@ -49,7 +44,7 @@ function renderizarCard(item, tipo) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const tipo = document.getElementById('tipo').value;
+    const tipo = document.querySelector('input[name="tipo_pub"]:checked').value;
     const nuevo = {
         id: Date.now(),
         titulo: document.getElementById('titulo').value,
@@ -64,8 +59,6 @@ form.addEventListener('submit', (e) => {
 
     form.reset();
     actualizarVista();
-    // Cerrar el formulario tras publicar
-    bootstrap.Collapse.getInstance(document.getElementById('collapseForm')).hide();
 });
 
 window.eliminarPublicacion = (id, tipo) => {
