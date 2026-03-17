@@ -7,16 +7,6 @@
     por lo que toda la información se guarda en arrays en memoria.
 
 /**
- * Usuario que aparece como logueado en la interfaz.
- * En este producto es un dato de prueba.
- */
-export const usuarioActual = {
-    id: 1,
-    nombre: "Usuario",
-    email: "usuario@empleo.com"
-};
-
-/**
  * Array con las ofertas de empleo.
  * Cada objeto representa una oferta que se mostrará en el dashboard.
  */
@@ -80,4 +70,23 @@ export const demandas = [
 ];
 
 //creo un array vacío para guardar cada usuario que se cree
-export const usuarios = []
+export const usuarios = [
+    {
+        id: 1,
+        nombre: "Ana García",
+        email: "ana@empleo.com",
+        password: "12345678"
+    },
+    {
+        id: 2,
+        nombre: "Carlos López",
+        email: "carlos@empleo.com",
+        password: "12345678"
+    },
+    {
+        id: 3,
+        nombre: "Lucía Martínez",
+        email: "lucia@empleo.com",
+        password: "12345678"
+    }
+];
