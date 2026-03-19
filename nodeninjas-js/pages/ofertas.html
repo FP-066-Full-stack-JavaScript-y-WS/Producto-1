@@ -102,6 +102,32 @@
             </form>
         </div>
     </div>
+    
+    <!-- Tablón de gestión: aparece las publicaciones añadidas y permite eliminarlas -->
+    <div class="container d-flex flex-column align-items-center mb-5">
+        <div class="card shadow-sm border-0 p-4 p-md-5" style="border-radius: 16px; width: 100%; max-width: 800px;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold mb-0 text-dark">
+                    <i class="bi bi-list-task me-2 text-primary"></i>Tus anuncios publicados
+                </h5>
+                <span class="badge bg-light text-primary border border-primary-subtle px-3 py-2" id="total-badge" style="border-radius: 20px;">0 anuncios</span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr class="small text-muted text-uppercase">
+                            <th style="font-size: 0.75rem;">Tipo</th>
+                            <th style="font-size: 0.75rem;">Título / Entidad</th>
+                            <th style="font-size: 0.75rem;" class="text-end">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-gestion">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <script>
         // Lógica simple para los selectores visuales (active box)
         const radioOferta = document.getElementById('tipo_oferta');
