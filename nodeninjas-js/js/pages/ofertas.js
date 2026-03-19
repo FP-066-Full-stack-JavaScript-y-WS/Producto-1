@@ -1,4 +1,6 @@
-import { ofertas, demandas, usuarioActual } from '../data/datos.js';
+import { ofertas, demandas } from '../data/datos.js';
+import { obtenerUsuarioActual } from '../modules/auth.js';
+// Importamos los datos de prueba y el usuario actual (pero este se gestiona en auth, no? )
 
 const form = document.getElementById('form-ofertas');
 const tablaGestion = document.getElementById('tabla-gestion');
@@ -6,6 +8,7 @@ const userDisplay = document.getElementById('user-display');
 const totalBadge = document.getElementById('total-badge');
 const contenedor = document.getElementById('contenedor-cards');
 
+const usuarioActual = obtenerUsuarioActual();
 // 1. Mostrar usuario compartido
 if (userDisplay && usuarioActual) {
     userDisplay.textContent = usuarioActual.email;
@@ -109,5 +112,33 @@ form.addEventListener('submit', (e) => {
     alert("¡Publicado con éxito!");
 });
 
+/* Función para activar el selector de tipo de publicación (Oferta/Demanda)
+se mueve del js del html
+*/
+function activarSelectorTipoPublicacion() {
+    const radioOferta = document.getElementById("tipo_oferta");
+    const radioDemanda = document.getElementById("tipo_demanda");
+    const labelEntidad = document.getElementById("label_entidad");
+
+    if (!radioOferta || !radioDemanda || !labelEntidad) return;
+
+    const boxOferta = radioOferta.nextElementSibling;
+    const boxDemanda = radioDemanda.nextElementSibling;
+
+    if (!boxOferta || !boxDemanda) return;
+
+    [boxOferta, boxDemanda].forEach((box) => {
+        box.addEventListener("click", () => {
+            boxOferta.classList.toggle("active", box === boxOferta);
+            boxDemanda.classList.toggle("active", box === boxDemanda);
+
+            labelEntidad.innerText =
+                box === boxOferta
+                    ? "Nombre de la empresa *"
+                    : "Tu nombre completo *";
+        });
+    });
+}
 // Carga inicial al entrar en la página
+activarSelectorTipoPublicacion();
 actualizarVista();
