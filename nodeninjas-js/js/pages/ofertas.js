@@ -4,7 +4,7 @@ const form = document.getElementById('form-ofertas');
 const tablaGestion = document.getElementById('tabla-gestion');
 const userDisplay = document.getElementById('user-display');
 const totalBadge = document.getElementById('total-badge');
-const contenedor = document.getElementById('contenedor-cards'); // La variable de tu compañero
+const contenedor = document.getElementById('contenedor-cards');
 
 // 1. Mostrar usuario compartido
 if (userDisplay && usuarioActual) {
@@ -71,6 +71,17 @@ form.addEventListener('submit', (e) => {
     const tipo = document.querySelector('input[name="tipo_pub"]:checked').value;
     const sMin = document.getElementById('salario_min').value;
     const sMax = document.getElementById('salario_max').value;
+
+    if ((sMin && sMin < 0) || (sMax && sMax < 0)) {
+        alert("El salario no puede ser negativo.");
+        return;
+    }
+
+    if (sMin && sMax && Number (sMin) > Number(sMax)) {
+        alert("El salario mínimo no puede ser mayor que el máximo.");
+        return;
+    }
+
 
     const nuevo = {
         id: Date.now(),
