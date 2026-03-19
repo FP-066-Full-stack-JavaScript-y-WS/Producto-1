@@ -4,6 +4,7 @@ const form = document.getElementById('form-ofertas');
 const tablaGestion = document.getElementById('tabla-gestion');
 const userDisplay = document.getElementById('user-display');
 const totalBadge = document.getElementById('total-badge');
+const contenedor = document.getElementById('contenedor-cards'); // La variable de tu compañero
 
 // 1. Mostrar usuario compartido
 if (userDisplay && usuarioActual) {
@@ -79,7 +80,7 @@ form.addEventListener('submit', (e) => {
         descripcion: document.getElementById('descripcion').value,
         salario: sMin && sMax ? `${sMin}€ - ${sMax}€` : 'No especificado',
         fecha: "Hoy",
-        autor: usuarioActual.email
+        autor: usuarioActual ? usuarioActual.email : "Desconocido"
     };
 
     if (tipo === 'oferta') {
