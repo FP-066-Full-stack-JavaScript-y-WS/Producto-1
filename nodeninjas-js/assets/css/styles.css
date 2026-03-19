@@ -194,6 +194,13 @@ a.btn-auth-gradient:active {
     color: #6f42c1;
 }
 
+/* Utilidades de color usadas por ofertas.js */
+.text-primary { color: #007bff !important; }
+.bg-primary-subtle { background-color: #e7f1ff; color: #007bff; }
+
+.text-purple { color: #6f42c1 !important; }
+.bg-purple-subtle { background-color: #efe7ff; color: #6f42c1; }
+
 .dashboard-card h3{
     font-size: 1.5rem;
     margin-bottom: 12px;
