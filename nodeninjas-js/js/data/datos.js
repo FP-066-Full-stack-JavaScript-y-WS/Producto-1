@@ -90,3 +90,7 @@ export const usuarios = [
         password: "12345678"
     }
 ];
+
+// Usuario actualmente logueado (por defecto null). Se exporta para evitar errores de import
+export const usuarioActual = null;
+// Fin del fichero de datos (sin persistencia, como requiere el Producto 1)
