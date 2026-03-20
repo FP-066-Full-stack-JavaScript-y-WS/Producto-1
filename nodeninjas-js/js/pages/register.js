@@ -43,3 +43,15 @@ formulario.addEventListener("submit", function (event) {
 function mostrarMensaje(texto, tipo) {
     contenedorMensaje.innerHTML = `<div class="alert alert-${tipo}" role="alert">${texto}</div>`;
 }
+
+
+/*
+
+Prompts IA. IA Usada: ChatGPT
+ 
+- Cómo puedo mostrar mensajes de error o éxito sin que se recargue la página?
+- Puedo hacer que los campos del formulario no se borren si hay un error? Para que el usuario los pueda revisar.
+- Cómo puedo comprobar que se están enviando bien los datos?
+- Necesito comprobar que las contraseñas coinciden antes de registrar al usuario
+
+*/

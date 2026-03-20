@@ -107,3 +107,16 @@ if (listaUsuarios) {
 }
 
 mostrarUsuarios();
+
+
+/* 
+
+- Cómo evitar usar onclick inline y hacerlo con addEventListener
+
+- Explicame cuando innerHTML += en un bucle o map().join('')
+
+- Estructura dataset para estructurar elementos de una tabla 
+
+- Comprobar mail existente con some()
+
+*/

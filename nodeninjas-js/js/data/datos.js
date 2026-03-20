@@ -90,9 +90,3 @@ export const usuarios = [
         password: "12345678"
     }
 ];
-
-// Usuario actualmente logueado (por defecto null). Se exporta para evitar errores de import
-/*  export const usuarioActual = null;
-    La gestión del login debe pasar por auth.js, que es el módulo encargado de la autenticación.
-*/
-// Fin del fichero de datos (sin persistencia, como requiere el Producto 1)
