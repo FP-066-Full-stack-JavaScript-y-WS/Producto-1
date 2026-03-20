@@ -161,3 +161,13 @@ function iniciarDashboard() {
    antes de ejecutar la lógica de la página.
 */
 document.addEventListener("DOMContentLoaded", iniciarDashboard);
+
+
+/* Prompts IA. IA Usada: ChatGPT
+
+- Cómo puedo mostrar varias cards con los datos de ofertas y demandas a partir de un array de objetos?
+- Necesito limitar la cantidad de cards que aparecen en el dashboard. cómo puedo mostrar solo las 3 primeras ofertas y demandas?
+- Cómo puedo usar la misma estructura de tarjeta para ofertas y demandas sin repetir código?
+- Quiero simular interacciones en mi aplicación (como ver detalles o navegar entre secciones) aunque todavía no tenga todas las páginas desarrolladas. ¿Cómo puedo hacerlo de forma sencilla mientras tanto?
+
+*/
