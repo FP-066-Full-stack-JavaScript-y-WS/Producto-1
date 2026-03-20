@@ -4,7 +4,7 @@
     Descripción:
     Este archivo almacena los datos de prueba de la aplicación.
     En el Producto 1 no existe base de datos ni persistencia real,
-    por lo que toda la información se guarda en arrays en memoria.
+    por lo que toda la información se guarda en arrays en memoria.*/
 
 /**
  * Array con las ofertas de empleo.
@@ -92,5 +92,7 @@ export const usuarios = [
 ];
 
 // Usuario actualmente logueado (por defecto null). Se exporta para evitar errores de import
-export const usuarioActual = null;
+/*  export const usuarioActual = null;
+    La gestión del login debe pasar por auth.js, que es el módulo encargado de la autenticación.
+*/
 // Fin del fichero de datos (sin persistencia, como requiere el Producto 1)
