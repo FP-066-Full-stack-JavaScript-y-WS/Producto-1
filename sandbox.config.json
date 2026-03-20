@@ -1,0 +1,20 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "start-static-server": {
+      "name": "Start Static Server",
+      "command": "npx http-server . -p 8080",
+      "runAtStart": true,
+      "preview": {
+        "port": 8080,
+        "prLink": "direct"
+      }
+    }
+  }
+}
