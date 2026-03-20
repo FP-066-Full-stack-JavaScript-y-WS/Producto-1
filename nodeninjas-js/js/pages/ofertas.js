@@ -1,11 +1,14 @@
-import { ofertas, demandas, usuarioActual } from '../data/datos.js';
+import { ofertas, demandas } from '../data/datos.js';
+import { obtenerUsuarioActual } from '../modules/auth.js';
+// Importamos los datos de prueba y el usuario actual (pero este se gestiona en auth, no? )
 
 const form = document.getElementById('form-ofertas');
 const tablaGestion = document.getElementById('tabla-gestion');
 const userDisplay = document.getElementById('user-display');
 const totalBadge = document.getElementById('total-badge');
-const contenedor = document.getElementById('contenedor-cards'); // La variable de tu compañero
+const contenedor = document.getElementById('contenedor-cards');
 
+const usuarioActual = obtenerUsuarioActual();
 // 1. Mostrar usuario compartido
 if (userDisplay && usuarioActual) {
     userDisplay.textContent = usuarioActual.email;
@@ -72,6 +75,17 @@ form.addEventListener('submit', (e) => {
     const sMin = document.getElementById('salario_min').value;
     const sMax = document.getElementById('salario_max').value;
 
+    if ((sMin && sMin < 0) || (sMax && sMax < 0)) {
+        alert("El salario no puede ser negativo.");
+        return;
+    }
+
+    if (sMin && sMax && Number (sMin) > Number(sMax)) {
+        alert("El salario mínimo no puede ser mayor que el máximo.");
+        return;
+    }
+
+
     const nuevo = {
         id: Date.now(),
         titulo: document.getElementById('titulo').value,
@@ -98,5 +112,55 @@ form.addEventListener('submit', (e) => {
     alert("¡Publicado con éxito!");
 });
 
+/* Función para activar el selector de tipo de publicación (Oferta/Demanda)
+se mueve del js del html
+*/
+function activarSelectorTipoPublicacion() {
+    const radioOferta = document.getElementById("tipo_oferta");
+    const radioDemanda = document.getElementById("tipo_demanda");
+    const labelEntidad = document.getElementById("label_entidad");
+
+    if (!radioOferta || !radioDemanda || !labelEntidad) return;
+
+    const boxOferta = radioOferta.nextElementSibling;
+    const boxDemanda = radioDemanda.nextElementSibling;
+
+    if (!boxOferta || !boxDemanda) return;
+
+    [boxOferta, boxDemanda].forEach((box) => {
+        box.addEventListener("click", () => {
+            boxOferta.classList.toggle("active", box === boxOferta);
+            boxDemanda.classList.toggle("active", box === boxDemanda);
+
+            labelEntidad.innerText =
+                box === boxOferta
+                    ? "Nombre de la empresa *"
+                    : "Tu nombre completo *";
+        });
+    });
+}
 // Carga inicial al entrar en la página
+activarSelectorTipoPublicacion();
 actualizarVista();
+
+
+// -- PROMPTS UTILIZADOS --> 
+// 
+// Prompt IA 1 (Gemini): 
+// "Función en JavaScript para añadir una nueva oferta o demanda a una tabla HTML y actualizar el contador."
+//
+
+// 
+// Prompt IA 2 (Gemini): 
+// "¿Cómo puedo eliminar una fila de una tabla HTML al pulsar un botón en JavaScript?"
+//
+
+// 
+// Prompt IA 3 (Gemini): 
+// "¿Cómo puedo cambiar el texto de un label según el tipo seleccionado (oferta/demanda) en un formulario con JS?"
+//
+
+// 
+// Prompt IA 4 (Gemini): 
+// "¿Cómo puedo mostrar un alert de éxito después de enviar un formulario en JavaScript?"
+//

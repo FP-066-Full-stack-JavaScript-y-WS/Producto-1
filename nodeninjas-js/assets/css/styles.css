@@ -471,3 +471,43 @@ nav .nav-link {
         font-size: 1.3rem;
     }
 }
+
+
+/* OFERTAS */
+
+.option-box {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    transition: 0.3s;
+    padding: 20px;
+    text-align: center;
+}
+
+.option-box:hover,
+.option-box.active {
+    border-color: #448aff;
+    cursor: pointer;
+}
+
+.option-box.active {
+    background-color: #f0f7ff;
+}
+
+.option-box.active i,
+.option-box.active h6,
+.option-box.active p {
+    color: #448aff !important;
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, #448aff, #9c27b0);
+    border: none;
+    color: white;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.text-oferta-color {
+    color: #448aff !important;
+}
