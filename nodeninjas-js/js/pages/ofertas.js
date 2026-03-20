@@ -111,3 +111,26 @@ form.addEventListener('submit', (e) => {
 
 // Carga inicial al entrar en la página
 actualizarVista();
+
+
+
+// -- PROMPTS UTILIZADOS --> 
+// 
+// Prompt IA 1 (Gemini): 
+// "Función en JavaScript para añadir una nueva oferta o demanda a una tabla HTML y actualizar el contador."
+//
+
+// 
+// Prompt IA 2 (Gemini): 
+// "¿Cómo puedo eliminar una fila de una tabla HTML al pulsar un botón en JavaScript?"
+//
+
+// 
+// Prompt IA 3 (Gemini): 
+// "¿Cómo puedo cambiar el texto de un label según el tipo seleccionado (oferta/demanda) en un formulario con JS?"
+//
+
+// 
+// Prompt IA 4 (Gemini): 
+// "¿Cómo puedo mostrar un alert de éxito después de enviar un formulario en JavaScript?"
+//
